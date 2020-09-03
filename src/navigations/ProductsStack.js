@@ -14,9 +14,8 @@ export default function ProductsStack(){
             options={{title:"Productos"}}
             />
             <Stack.Screen
-            name="productDetail"
+            name="product"
             component={ProductsDetails}
-            options={{title:"Nombre de producto"}}
             />
         </Stack.Navigator>
     )
