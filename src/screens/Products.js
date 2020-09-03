@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import { getProducts } from "../services";
+import ListProducts from '../components/Products/ListProducts'
+
 export default function Products() {
   const [productList, setProductList] = useState([]);
-//   console.log(productList);
+
   useEffect(() => {
     getProducts().then((res) => {
       setProductList(res.data);
@@ -11,7 +13,9 @@ export default function Products() {
   }, []);
   return (
     <View>
-      <Text>Products...</Text>
+      <ListProducts
+      productsList={productList}
+      />
     </View>
   );
 }

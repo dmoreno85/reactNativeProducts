@@ -1,11 +1,13 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default function ProductsDetails() {
   return (
     <View>
-      <Text>ProductsDetails...</Text>
+      <Text></Text>
     </View>
-  );
+  )
 }
+
+const styles = StyleSheet.create({})
 
