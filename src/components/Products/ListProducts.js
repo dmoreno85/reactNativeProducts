@@ -21,8 +21,8 @@ export default function ListProducts(props) {
         <FlatList
           style={{ flex: 1 }}
           contentContainerStyle={{
-            paddingTop: 40,
-            paddingBottom: 40,
+            paddingTop: 3,
+            paddingBottom: 3,
           }}
           data={productsList}
           renderItem={(productData) => (
