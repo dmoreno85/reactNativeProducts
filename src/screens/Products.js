@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { View} from "react-native";
+import { ScrollView } from "react-native";
 import { getProducts } from "../services";
 import ListProducts from "../components/Products/ListProducts";
 
-export default function Products(props) {
+export default function Products() {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
@@ -13,8 +13,8 @@ export default function Products(props) {
   }, []);
 
   return (
-    <View>
+    <ScrollView>
       <ListProducts productsList={productList} />
-    </View>
+    </ScrollView>
   );
 }

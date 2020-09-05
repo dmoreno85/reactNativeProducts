@@ -6,7 +6,6 @@ import {
   FlatList,
   ActivityIndicator,
   TouchableOpacity,
-  ScrollView
 } from "react-native";
 import { Image } from "react-native-elements";
 import { size } from "lodash";
@@ -17,13 +16,13 @@ export default function ListProducts(props) {
   const navigation = useNavigation();
 
   return (
-    <ScrollView>
+    <View>
       {size(productsList) > 0 ? (
         <FlatList
           style={{ flex: 1 }}
           contentContainerStyle={{
             paddingTop: 40,
-            paddingBottom:40
+            paddingBottom: 40,
           }}
           data={productsList}
           renderItem={(productData) => (
@@ -37,14 +36,13 @@ export default function ListProducts(props) {
           <Text>Cargando productos..</Text>
         </View>
       )}
-    </ScrollView>
+    </View>
   );
 }
 
 function ProductsItem(props) {
   const { productData, navigation } = props;
   const { image, title, id } = productData.item;
-
   const imageProductList = image[0];
 
   const goProductDetail = () => {
@@ -63,7 +61,7 @@ function ProductsItem(props) {
             source={
               imageProductList
                 ? { uri: imageProductList }
-                : require("../../../assets/Interrogation.jpg")
+                : require("../../../assets/no-image.png")
             }
             style={styles.imageProduct}
           />

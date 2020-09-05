@@ -19,33 +19,32 @@ export default function ProductsDetails(props) {
     });
   }, []);
 
-  console.log(product);
   if (!product) return <Loading isVisible={true} text="cargando.." />;
 
   return (
     <ScrollView vertical style={styles.viewBody}>
       <Carousel arrayImages={product.image} height={200} width={screenWidht} />
-      <TitleProduct 
-      title={product.title}
-      description={product.description}
-      model={product.model}
+      <TitleProduct
+        title={product.title}
+        description={product.description}
+        model={product.model}
       />
     </ScrollView>
   );
 }
 
-function TitleProduct(props){
-  const{title, description,model} = props;
+function TitleProduct(props) {
+  const { title, description, model } = props;
 
-  return(
+  return (
     <View style={styles.viewTitleProduct}>
       <View style={styles.viewTitleContainer}>
-  <Text style={styles.titleProduct}>{title}</Text>
+        <Text style={styles.titleProduct}>{title}</Text>
       </View>
-  <Text style={styles.modelProduct}>{model}</Text>
-<Text style={styles.descriptionProduct}>{description}</Text>
+      <Text style={styles.modelProduct}>{model}</Text>
+      <Text style={styles.descriptionProduct}>{description}</Text>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -53,23 +52,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-  viewTitleProduct:{
-    padding:15
+  viewTitleProduct: {
+    padding: 15,
   },
-  titleProduct:{
-    fontSize:30,
-    fontWeight:"bold"
+  titleProduct: {
+    fontSize: 30,
+    fontWeight: "bold",
   },
-  descriptionProduct:{
-    marginTop:6,
-    color:"grey"
+  descriptionProduct: {
+    marginTop: 6,
+    color: "grey",
   },
-  modelProduct:{
-    marginTop:6,
-    fontSize:15,
-    fontStyle:"italic"
+  modelProduct: {
+    marginTop: 6,
+    fontSize: 15,
+    fontStyle: "italic",
   },
-  viewTitleContainer:{
-    alignItems:"center"
-  }
+  viewTitleContainer: {
+    alignItems: "center",
+  },
 });

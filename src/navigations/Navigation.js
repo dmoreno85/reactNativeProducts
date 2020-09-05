@@ -36,21 +36,20 @@ export default function Navigation() {
   );
 }
 
+function screenOptions(route, color) {
+  let iconName;
 
-function screenOptions(route, color){
-let iconName;
-
-switch (route.name) {
-  case "products":
-    iconName ="compass-outline"
-    break;
-    case"search":
-    iconName="magnify"
-    break;
-  default:
-    break;
-}
-return (
-  <Icon type="material-community" name={iconName} size={22} color={color}/>
-)
+  switch (route.name) {
+    case "products":
+      iconName = "compass-outline";
+      break;
+    case "search":
+      iconName = "magnify";
+      break;
+    default:
+      break;
+  }
+  return (
+    <Icon type="material-community" name={iconName} size={22} color={color} />
+  );
 }
