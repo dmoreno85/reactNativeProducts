@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet,View, FlatList, Image,ScrollView } from "react-native";
-import { SearchBar, ListItem, Icon, Tile } from "react-native-elements";
+import { SearchBar, ListItem, Icon } from "react-native-elements";
 import { getProducts } from "../services";
 
 export default function Search(props) {
@@ -33,12 +33,15 @@ export default function Search(props) {
   return (
     <ScrollView>
       <SearchBar
-        placeholder="Busca tu restaurante..."
+        placeholder="Busca un producto.."
         onChangeText={(e) => setSearch(e)}
         value={search}
         containerStyle={styles.searchBar}
+        lightTheme="true"
+        inputStyle={{color:"#00a680"}}
+       
       />
-      {productList.length === 0 ? (
+      {productSearch.length === 0 ? (
         <NoProductFound />
       ) : (
         <FlatList
@@ -90,9 +93,12 @@ function Product(props) {
 const styles = StyleSheet.create({
   searchBar: {
     marginBottom: 20,
+
   },
   noProductFound: {
     flex: 1,
     alignItems: "center",
+    marginTop:50
   },
+
 });
