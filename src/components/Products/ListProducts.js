@@ -14,7 +14,9 @@ import { useNavigation } from "@react-navigation/native";
 export default function ListProducts(props) {
   const { productsList } = props;
   const navigation = useNavigation();
-  const productListSort = productsList.sort((a, b) => a.title.localeCompare(b.title))
+  const productListSort = productsList.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
   return (
     <View>
       {size(productListSort) > 0 ? (
@@ -100,9 +102,11 @@ const styles = StyleSheet.create({
     fontSize: 21,
     marginBottom: 10,
     textTransform: "capitalize",
+    fontFamily: "Roboto",
   },
   priceProduct: {
     fontStyle: "italic",
+    fontFamily: "monospace",
   },
   viewDetails: {
     flex: 1,

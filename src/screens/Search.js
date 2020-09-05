@@ -36,9 +36,9 @@ export default function Search(props) {
         placeholder="Busca un producto.."
         onChangeText={(e) => setSearch(e)}
         value={search}
-        lightTheme="true"
-        inputStyle={{ color: "#00a680" }}
-        containerStyle={{marginBottom:5}}
+        lightTheme={true}
+        inputStyle={{ color: "#00a680", fontFamily: "Roboto" }}
+        containerStyle={{ marginBottom: 5 }}
       />
       {productSearch.length === 0 ? (
         <NoProductFound />
@@ -72,17 +72,21 @@ function Product(props) {
   const { id, title, image } = product.item;
   return (
     <ListItem
-    bottomDivider
-    topDivider
+      bottomDivider
+      topDivider
       title={title}
-      titleStyle={{ marginLeft: 12, textTransform: "capitalize", fontWeight: "bold", }}
-      containerStyle={{marginLeft:5,marginRight:5, borderRadius:3}}
+      titleStyle={{
+        marginLeft: 12,
+        textTransform: "capitalize",
+        fontWeight: "bold",
+        fontFamily: "Roboto",
+      }}
+      containerStyle={{ marginLeft: 5, marginRight: 5, borderRadius: 3 }}
       leftAvatar={{
         source: image[0]
           ? { uri: image[0] }
           : require("../../assets/no-image.png"),
       }}
-      
       rightIcon={<Icon type="material-comunity" name="chevron-right" />}
       onPress={() =>
         navigation.navigate("products", {
@@ -95,10 +99,9 @@ function Product(props) {
 }
 
 const styles = StyleSheet.create({
-   noProductFound: {
+  noProductFound: {
     flex: 1,
     alignItems: "center",
     marginTop: 50,
   },
-
 });

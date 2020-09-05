@@ -11,7 +11,18 @@ export default function SearchStack() {
       <Stack.Screen
         name="search"
         component={Search}
-        options={{ title: "Buscador" }}
+        options={{
+          title: "Buscador",
+          headerStyle: {
+            backgroundColor: "#81d3a0",
+          },
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "monospace",
+            fontSize: 25,
+            fontWeight: "bold",
+          },
+        }}
       />
     </Stack.Navigator>
   );
