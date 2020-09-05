@@ -42,7 +42,7 @@ export default function ListProducts(props) {
 
 function ProductsItem(props) {
   const { productData, navigation } = props;
-  const { image, title, id } = productData.item;
+  const { image, title, id, price } = productData.item;
   const imageProductList = image[0];
 
   const goProductDetail = () => {
@@ -66,7 +66,10 @@ function ProductsItem(props) {
             style={styles.imageProduct}
           />
         </View>
-        <Text style={styles.titleProduct}>{title}</Text>
+        <View style={styles.viewDetails}>
+          <Text style={styles.titleProduct}>{title}</Text>
+          <Text style={styles.priceProduct}>{price} €</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -80,7 +83,10 @@ const styles = StyleSheet.create({
   },
   viewProducts: {
     flexDirection: "row",
-    margin: 1,
+    margin: 3,
+
+    backgroundColor: "white",
+    borderRadius: 5,
   },
   viewProductsImage: {
     marginRight: 15,
@@ -91,6 +97,16 @@ const styles = StyleSheet.create({
   },
   titleProduct: {
     fontWeight: "bold",
-    fontSize: 25,
+    fontSize: 21,
+    marginBottom:10,
+    textTransform:"Capitalize"
+  },
+  priceProduct: {
+    fontStyle: "italic",
+  },
+  viewDetails: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
   },
 });

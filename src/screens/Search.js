@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet,View, FlatList, Image,ScrollView } from "react-native";
+import { StyleSheet, View, FlatList, Image, ScrollView } from "react-native";
 import { SearchBar, ListItem, Icon } from "react-native-elements";
 import { getProducts } from "../services";
 
@@ -38,8 +38,7 @@ export default function Search(props) {
         value={search}
         containerStyle={styles.searchBar}
         lightTheme="true"
-        inputStyle={{color:"#00a680"}}
-       
+        inputStyle={{ color: "#00a680", textTransform: "Capitalize" }}
       />
       {productSearch.length === 0 ? (
         <NoProductFound />
@@ -73,12 +72,15 @@ function Product(props) {
   const { id, title, image } = product.item;
   return (
     <ListItem
+   
       title={title}
+      titleStyle={{ marginLeft: 12, textTransform: "capitalize", fontWeight: "bold", }}
       leftAvatar={{
         source: image[0]
           ? { uri: image[0] }
           : require("../../assets/no-image.png"),
       }}
+      
       rightIcon={<Icon type="material-comunity" name="chevron-right" />}
       onPress={() =>
         navigation.navigate("products", {
@@ -93,12 +95,11 @@ function Product(props) {
 const styles = StyleSheet.create({
   searchBar: {
     marginBottom: 20,
-
   },
   noProductFound: {
     flex: 1,
     alignItems: "center",
-    marginTop:50
+    marginTop: 50,
   },
 
 });
