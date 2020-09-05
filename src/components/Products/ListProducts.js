@@ -14,17 +14,17 @@ import { useNavigation } from "@react-navigation/native";
 export default function ListProducts(props) {
   const { productsList } = props;
   const navigation = useNavigation();
-
+  const productListSort = productsList.sort((a, b) => a.title.localeCompare(b.title))
   return (
     <View>
-      {size(productsList) > 0 ? (
+      {size(productListSort) > 0 ? (
         <FlatList
           style={{ flex: 1 }}
           contentContainerStyle={{
             paddingTop: 3,
             paddingBottom: 3,
           }}
-          data={productsList}
+          data={productListSort}
           renderItem={(productData) => (
             <ProductsItem productData={productData} navigation={navigation} />
           )}
@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
   titleProduct: {
     fontWeight: "bold",
     fontSize: 21,
-    marginBottom:10,
-    textTransform:"Capitalize"
+    marginBottom: 10,
+    textTransform: "capitalize",
   },
   priceProduct: {
     fontStyle: "italic",
