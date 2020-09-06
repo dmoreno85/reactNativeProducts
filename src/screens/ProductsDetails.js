@@ -59,8 +59,7 @@ function TitleProduct(props) {
       <View style={styles.viewPriceContainet}>
         <View style={styles.textStyleContainerPrice}>
           <Text style={styles.boldStyle}>Precio: </Text>
-          <Text style={styles.textPrice}> {price} </Text>
-          <Text style={styles.boldStyle}>€</Text>
+          <Text style={styles.textPrice}>{price}€</Text>
         </View>
         <View style={styles.textStyleContainerStock}>
           <Text style={styles.boldStyle}>En stock: </Text>

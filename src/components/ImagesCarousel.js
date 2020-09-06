@@ -5,7 +5,13 @@ export default function ImagesCarousel(props) {
   const { arrayImages, height, width } = props;
 
   const renderItem = ({ item }) => {
-    return <Image style={{ width, height }} source={{ uri: item }} />;
+    return (
+      <Image
+        resizeMode="contain"
+        style={{ width, height}}
+        source={{ uri: item }}
+      />
+    );
   };
 
   return (

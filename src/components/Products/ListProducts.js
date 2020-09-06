@@ -58,7 +58,7 @@ function ProductsItem(props) {
       <View style={styles.viewProducts}>
         <View style={styles.viewProductsImage}>
           <Image
-            resizeMode="cover"
+            resizeMode="contain"
             PlaceholderContent={<ActivityIndicator color="fff" />}
             source={
               imageProductList
@@ -70,7 +70,7 @@ function ProductsItem(props) {
         </View>
         <View style={styles.viewDetails}>
           <Text style={styles.titleProduct}>{title}</Text>
-          <Text style={styles.priceProduct}>{price} €</Text>
+          <Text style={styles.priceProduct}>{price}€</Text>
         </View>
       </View>
     </TouchableOpacity>
