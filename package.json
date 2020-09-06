@@ -1,11 +1,16 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start:front": "expo start",
+    "start:mock": "cd JSON-Native && npm run server",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "start": "concurrently \"npm run start:mock\" \"npm run start:front\"",
+    "install":"npm run install:front && npm run install:mock",
+    "install:front": "npm install",
+    "install:mock": "cd JSON-Native && npm install"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
