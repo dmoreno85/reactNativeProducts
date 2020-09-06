@@ -79,7 +79,7 @@ function ProductsItem(props) {
 
 const styles = StyleSheet.create({
   loaderProducts: {
-    marginTop: 10,
+    marginTop: 30,
     marginBottom: 10,
     alignItems: "center",
   },

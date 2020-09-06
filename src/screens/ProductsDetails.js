@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, ScrollView, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Dimensions,
+  ActivityIndicator,
+} from "react-native";
 import { getProductsById } from "../services";
-import Loading from "../components/Loading";
+import { Rating } from "react-native-elements";
 import Carousel from "../components/ImagesCarousel";
 
 const screenWidht = Dimensions.get("window").width;
 
 export default function ProductsDetails(props) {
-  const { navigation, route } = props;
+  const { route } = props;
   const { id } = route.params;
   const [product, setProduct] = useState(null);
 
@@ -17,7 +24,13 @@ export default function ProductsDetails(props) {
     });
   }, []);
 
-  if (!product) return <Loading isVisible={true} text="cargando.." />;
+  if (!product)
+    return (
+      <View style={styles.loaderProducts}>
+        <ActivityIndicator size="large" />
+        <Text>Cargando producto..</Text>
+      </View>
+    );
 
   return (
     <ScrollView vertical style={styles.viewBody}>
@@ -28,22 +41,28 @@ export default function ProductsDetails(props) {
 }
 
 function TitleProduct(props) {
-  const { title, description, model, price, stock } = props.data;
-  console.log(props);
+  const { title, description, model, price, stock, rating } = props.data;
   return (
     <View style={styles.viewTitleProduct}>
       <View style={styles.viewTitleContainer}>
         <Text style={styles.titleProduct}>{title}</Text>
       </View>
-      <Text style={styles.modelProduct}>{model}</Text>
-
+      <View style={styles.viewRatingContainer}>
+        <Text style={styles.modelProduct}>{model}</Text>
+        <Rating
+          imageSize={20}
+          style={styles.rating}
+          readonly
+          startingValue={rating}
+        />
+      </View>
       <View style={styles.viewPriceContainet}>
-        <View style={styles.textStyleContainer}>
+        <View style={styles.textStyleContainerPrice}>
           <Text style={styles.boldStyle}>Precio: </Text>
           <Text style={styles.textPrice}> {price} </Text>
           <Text style={styles.boldStyle}>€</Text>
         </View>
-        <View style={styles.textStyleContainer}>
+        <View style={styles.textStyleContainerStock}>
           <Text style={styles.boldStyle}>En stock: </Text>
           <Text style={styles.textStock}>{stock} </Text>
           <Text style={styles.boldStyle}>unidades</Text>
@@ -79,13 +98,12 @@ const styles = StyleSheet.create({
     fontSize: 19,
   },
   modelProduct: {
-    marginTop: 6,
-    marginBottom: 36,
     fontSize: 17,
     fontStyle: "italic",
     fontFamily: "Roboto",
     fontWeight: "bold",
     color: "#635c5c",
+    textTransform: "capitalize",
   },
   viewTitleContainer: {
     alignItems: "center",
@@ -93,10 +111,15 @@ const styles = StyleSheet.create({
   viewPriceContainet: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-around",
-    marginBottom: 36,
+    justifyContent: "space-between",
+    marginBottom: 25,
   },
-  textStyleContainer: {
+  textStyleContainerStock: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+  textStyleContainerPrice: {
     flex: 1,
     flexDirection: "row",
   },
@@ -115,5 +138,17 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "green",
     fontFamily: "monospace",
+  },
+  loaderProducts: {
+    marginTop: 30,
+    marginBottom: 10,
+    alignItems: "center",
+  },
+  viewRatingContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 30,
+    marginBottom: 25,
   },
 });
