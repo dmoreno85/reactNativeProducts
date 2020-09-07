@@ -8,7 +8,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "start": "concurrently \"npm run start:mock\" \"npm run start:front\"",
-    "install":"npm run install:front && npm run install:mock",
+    "postinstall":"npm run install:front && npm run install:mock",
     "install:front": "npm install",
     "install:mock": "cd JSON-Native && npm install"
   },
