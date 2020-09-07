@@ -14,19 +14,13 @@ export default function Search(props) {
       getProducts().then((res) => {
         setProductList(res.data);
       });
-    } else setProductList([]);
-  }, [search]);
-
-  useEffect(() => {
-    if (search) {
-      const Search = search;
-      let searchLowCase = Search.toLowerCase();
-      const searchFiltered = productList.filter((item) => {
-        return item.title.toLowerCase().match(searchLowCase);
+      let searchLowCase = search.toLowerCase();
+      const searchFiltered = productList.filter((product) => {
+        return product.title.toLowerCase().match(searchLowCase);
       });
       setProductSearch(searchFiltered);
     } else {
-      setProductSearch([]);
+      setProductSearch([]), setProductList([]);
     }
   }, [search]);
 

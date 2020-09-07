@@ -13,7 +13,7 @@ import Carousel from "../components/ImagesCarousel";
 
 const screenWidht = Dimensions.get("window").width;
 
-export default function ProductsDetails(props) {
+export default function ProductDetail(props) {
   const { route } = props;
   const { id } = route.params;
   const [product, setProduct] = useState(null);
