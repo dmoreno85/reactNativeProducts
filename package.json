@@ -1,13 +1,12 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start:front": "expo start",
-    "start:mock": "cd JSON-Native && npm run server",
+    "start": "expo start",
+    "npm run server": "cd JSON-Native && npm run server",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "start": "concurrently \"npm run start:mock\" \"npm run start:front\"",
     "postinstall":"npm run install:front && npm run install:mock",
     "install:front": "npm install",
     "install:mock": "cd JSON-Native && npm install"
