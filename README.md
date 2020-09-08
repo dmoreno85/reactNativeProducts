@@ -5,6 +5,6 @@
 Introducir:
 # "npm run server"
 En otra pestaña del terminal, introducir:
-# expo start
+# "expo start"
  Seleccionar 
  # "Run in web browser"
